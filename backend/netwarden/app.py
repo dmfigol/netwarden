@@ -9,8 +9,8 @@ logger = logging.getLogger(__name__)
 
 origins = [
     "http://localhost",
-    "http://localhost:8081",
-    "http://192.168.153.100:8081"
+    "http://localhost:8080",
+    "http://192.168.153.100:8080"
 ]
 
 app = FastAPI()
