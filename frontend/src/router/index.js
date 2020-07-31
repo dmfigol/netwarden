@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import InventoryView from "../views/InventoryView.vue";
+import NetworkDiagramView from "../views/NetworkDiagramView.vue";
 
 Vue.use(VueRouter);
 
@@ -15,6 +16,11 @@ const routes = [
     path: "/inventory",
     name: "InventoryView",
     component: InventoryView
+  },
+  {
+    path: "/diagram",
+    name: "NetworkDiagramView",
+    component: NetworkDiagramView
   },
   {
     path: "/about",

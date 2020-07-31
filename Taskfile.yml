@@ -1,0 +1,17 @@
+version: '2'
+
+tasks:
+  netbox:
+    dir: ~/projects/netwarden-netbox
+    cmds:
+      - docker-compose up -d
+
+  backend:
+    dir: backend
+    cmds:
+      - poetry run uvicorn netwarden.app:app --host 0.0.0.0 --port 8000
+
+  frontend:
+    dir: frontend
+    cmds:
+      - yarn serve --host 0.0.0.0 --port 8081

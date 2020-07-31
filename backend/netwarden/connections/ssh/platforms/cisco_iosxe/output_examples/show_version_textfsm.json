@@ -1,0 +1,18 @@
+[
+    {
+        "version": "16.11.1b",
+        "rommon": "IOS-XE",
+        "hostname": "R5",
+        "uptime": "1 hour, 4 minutes",
+        "reload_reason": "reload",
+        "running_image": "packages.conf",
+        "hardware": [
+            "CSR1000V"
+        ],
+        "serial": [
+            "9A4GWD2K7X4"
+        ],
+        "config_register": "0x2102",
+        "mac": []
+    }
+]

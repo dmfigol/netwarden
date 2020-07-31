@@ -11,17 +11,6 @@ export default {
   props: {},
   data() {
     return {
-      rows_old: [
-        {
-          "name": "R1",
-          "site": "Krakow",
-          "fqdn": "r1.krk.lab.dmfigol.me",
-          "mgmt_ip": "192.168.153.101",
-          "sw_version": "N/A",
-          "credentials": "cisco/cisco",
-          "console_url": "<a href='telnet://192.168.153.100:9000' target='_blank'>telnet://192.168.153.100:9000</a>",
-        },
-      ],
       rows: [],
       columns: [
         {
@@ -38,14 +27,26 @@ export default {
           field: "fqdn",
           label: "FQDN",
         },
+        // {
+        //   field: "mgmt_ip",
+        //   label: "Management IP",
+        //   // centered: true,
+        // },
         {
-          field: "mgmt_ip",
-          label: "Management IP",
-          // centered: true,
+          field: "vendor",
+          label: "Vendor",
         },
         {
-          field: "sw_version",
+          field: "model",
+          label: "Model",
+        },
+        {
+          field: "software_version",
           label: "Software Version",
+        },
+        {
+          field: "serial_number",
+          label: "Serial Number",
         },
         {
           field: "credentials",
@@ -68,6 +69,7 @@ export default {
           device.credentials = `${device.username}/${device.password}`;
           let console_url = `telnet://${device.console.server}:${device.console.port}`;
           device.console_url = `<a href='${console_url}'>${console_url}</a>`;
+          device.software_version = `${device.platform} ${device.software_version}`;
         }
         this.rows = response.data;
       })
