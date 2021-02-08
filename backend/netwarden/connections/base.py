@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 from typing import TYPE_CHECKING, TypeVar, Callable, Any, Dict, Optional
 
 from netwarden.connections.handlers import HANDLERS
+from netwarden.utils import merge_dicts, no_op
 
 if TYPE_CHECKING:
     from fastapi import Request
@@ -9,6 +10,7 @@ if TYPE_CHECKING:
 DEFAULT_PRIORITY = 500
 MIN_PRIORITY = 0
 DEFAULT_PRIORITY_DECREMENT = 250
+DEFAULT_COLLECT_FUNC = merge_dicts
 
 
 class ConnectionError(Exception):
@@ -29,17 +31,16 @@ class Connection(ABC):
         password: str,
         platform: str,
         port: Optional[int] = None,
-        priority: int = 100,
+        priority: int = DEFAULT_PRIORITY,
     ) -> None:
         self.name = name
+        self.priority = priority
 
         self.host = host
         self.port = port
         self.username = username
         self.password = password
         self.platform = platform
-
-        self.priority = priority
 
         self._enabled: Optional[bool] = None
 
@@ -63,12 +64,42 @@ class Connection(ABC):
             pass
 
     async def is_enabled(self, force_check: bool = False) -> bool:
+        """Checks if the connection is established
+
+        Args:
+            force_check: if we need to force trying to establish connection
+              before returning result. Default: False
+
+        Returns:
+            True if the connection is established, False - otherwise
+
+        """
+        # if connection was already tried to establish and we keep the result
+        # and we don't need to force re-establishing connection
         if self._enabled is not None and not force_check:
             return self._enabled
         await self.update_availability()
+
+        if self._enabled is None:
+            raise ConnectionError(
+                f"{self.NAME} connection to {self.host} was never established"
+            )
         return self._enabled
 
+    @abstractmethod
+    async def update_availability(self) -> None:
+        pass
+
     def get_handlers(self, key: str) -> Dict[str, Any]:
+        """Retrieves handlers for specific request, platform and connection type.
+
+        Args:
+            key: type of requested information as described in handlers.py. For example,
+              "version_sn"
+
+        Returns:
+            dictionary with the handlers for the request, platform and connection type
+        """
         result = HANDLERS[key][self.platform][self.NAME]
         return result
 
@@ -84,20 +115,22 @@ class Connection(ABC):
             self.decrease_priority()
             raise ConnectionError(
                 f"{self.NAME} connection to {self.host} couldn't be "
-                f"Sestablished, new connection priority: {self.priority}"
+                f"established, new connection priority: {self.priority}"
             )
-
-    @abstractmethod
-    async def update_availability(self) -> None:
-        pass
 
     async def parse(self, key: str, **kwargs: Dict[str, Any]) -> Any:
         handlers = self.get_handlers(key)
-        results = [
-            await self.handle(**handler_info, **kwargs)
-            for handler_info in handlers["handlers"]
-        ]
-        result = handlers["collect_fn"](*results)
+
+        results = []
+        for handler_info in handlers["handlers"]:
+            if "handler" not in handler_info:
+                # if handler function is not specified, use no_op function which
+                # simply returns the input value
+                handler_info["handler"] = no_op
+            partial_result = await self.handle(**handler_info, **kwargs)
+            results.append(partial_result)
+        collect_func = handlers.get("collect_fn", DEFAULT_COLLECT_FUNC)
+        result = collect_func(*results)
         return result
 
     # @abstractmethod

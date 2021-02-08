@@ -10,11 +10,12 @@ python = "^3.8"
 fastapi = "*"
 uvicorn = "*"
 httpx = "*"
-dynaconf = "^2"
+dynaconf = "^3"
 lxml = "^4"
-scrapli = { git = "https://github.com/carlmontanari/scrapli.git", branch = "master", extras = ["asyncssh", "textfsm", "genie"] }
 ntc-templates = "^1"
-attrs = "^19.3.0"
+attrs = "*"
+scrapli = { version = "*", extras = ["asyncssh", "textfsm", "genie"], allow-prereleases = true }
+scrapli-netconf = { version = "*", allow-prereleases = true }
 
 [tool.poetry.dev-dependencies]
 bpython = "*"
@@ -22,7 +23,9 @@ pdbpp = "*"
 flake8 = "*"
 mypy = "*"
 black = { version = "*", allow-prereleases = true }
-rope = "^0.17.0"
+rope = "*"
+pytest = "*"
+scrapli-replay = { version = "*", allow-prereleases = true }
 
 [build-system]
 requires = ["poetry>=0.12"]

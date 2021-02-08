@@ -1,4 +1,4 @@
-version: '2'
+version: "3"
 
 tasks:
   netbox:
@@ -9,9 +9,31 @@ tasks:
   backend:
     dir: backend
     cmds:
-      - poetry run uvicorn netwarden.app:app --host 0.0.0.0 --port 8000
+      - poetry run uvicorn netwarden.app:app --host 0.0.0.0 --port 5000
 
   frontend:
     dir: frontend
     cmds:
-      - yarn serve --host 0.0.0.0 --port 8081
+      - yarn serve --host 0.0.0.0 --port 8000
+
+  install-backend:
+    dir: backend
+    cmds:
+      - rm -rf .venv
+      - poetry install
+
+  install-frontend:
+    dir: frontend
+    cmds:
+      - rm -rf node_modules
+      - yarn install
+
+  install:
+    cmds:
+      - task: install-backend
+      - task: install-frontend
+
+  gen-requirements-txt:
+    dir: backend
+    cmds:
+      - poetry export --without-hashes -f requirements.txt > requirements.txt

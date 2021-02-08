@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <!-- <router-link to="/">Home</router-link> | -->
       <router-link to="/inventory">Inventory</router-link> |
       <router-link to="/diagram">Diagram</router-link>
     </div>
@@ -17,13 +17,13 @@ h1 {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  // text-align: center;
   color: #2c3e50;
 }
 
 #nav {
   padding: 30px;
-
+  text-align: center;
   a {
     font-weight: bold;
     color: #2c3e50;
@@ -34,3 +34,15 @@ h1 {
   }
 }
 </style>
+
+<script>
+export default {
+  name: "App",
+  metaInfo: {
+    // if no subcomponents specify a metaInfo.title, this title will be used
+    title: "Network Controller",
+    // all titles will be injected into this template
+    titleTemplate: "%s | NetWarden",
+  },
+};
+</script>

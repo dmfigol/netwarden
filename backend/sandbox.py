@@ -1,9 +1,9 @@
 import asyncio
 
-from scrapli.driver.core import AsyncIOSXEDriver
+from scrapli_netconf.driver import AsyncNetconfScrape
 
 MY_DEVICE = {
-    "host": "192.168.153.105",
+    "host": "192.168.153.102",
     "auth_username": "cisco",
     "auth_password": "cisco",
     "auth_strict_key": False,
@@ -12,9 +12,9 @@ MY_DEVICE = {
 
 
 async def main():
-    async with AsyncIOSXEDriver(**MY_DEVICE) as conn:
+    async with AsyncNetconfScrape(**MY_DEVICE) as conn:
         # Platform drivers will auto-magically handle disabling paging for you
-        result = await conn.send_command("show version")
+        result = await conn.get_config()
     breakpoint()
 
 

@@ -5,13 +5,14 @@ from typing import Dict, List, Any, TYPE_CHECKING, ValuesView
 from netwarden.inventory.device import Device
 from netwarden.connections.restconf.connection import RESTCONF
 from netwarden.connections.ssh.connection import SSH
+from netwarden.connections.netconf.connection import NETCONF
 
 if TYPE_CHECKING:
     from netwarden.netbox import NetBox
 
 logger = logging.getLogger(__name__)
 
-CONNECTIONS = [RESTCONF, SSH]
+CONNECTIONS = [RESTCONF, SSH, NETCONF]
 
 
 class Inventory:
@@ -50,20 +51,17 @@ class Inventory:
         for device_data in devices:
             device = Device.from_netbox(device_data, connections=CONNECTIONS)
             name_to_device[device.name] = device
-        inventory = cls(
-            devices=name_to_device
-        )
+        inventory = cls(devices=name_to_device)
         return inventory
 
     @classmethod
     async def fetch_from_netbox(cls, netbox: "NetBox") -> "Inventory":
-        devices_coro = netbox.devices.list()
-        secrets_coro = netbox.secrets.list()
-        results = await asyncio.gather(devices_coro, secrets_coro)
-        devices_data, secrets_data = results
-        devices = netbox.parse_devices(devices=devices_data, secrets=secrets_data)
+        # devices_coro = netbox.devices.list()
+        # secrets_coro = netbox.secrets.list()
+        # results = await asyncio.gather(devices_coro, secrets_coro)
+        # devices_data, secrets_data = results
+        devices_data = await netbox.devices.list()
+        devices = netbox.parse_devices(devices=devices_data, secrets=[])
         inventory = cls.from_netbox_devices_list(devices)
         logger.info("%d devices imported from netbox", len(inventory))
         return inventory
-
-

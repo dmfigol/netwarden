@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Network Diagram</h1>
+  <container>
+    <h1 class="title has-text-centered">Network Diagram based on LLDP</h1>
     <network
       class="diagram"
       ref="network"
@@ -8,12 +8,14 @@
       :edges="edges"
       :options="options"
     />
-  </div>
+  </container>
 </template>
 
 <script>
 import axios from "axios";
-import { Network } from "vue-visjs";
+// import { Network } from "vue-visjs";
+import { Network } from "@vue2vis/network";
+// Vue.component("network", vue2vis.Network);
 export default {
   name: "NetworkDiagram",
   components: {
@@ -21,10 +23,10 @@ export default {
     // DataSet,
     Network,
   },
-  data: function() {
+  data: function () {
     return {
-    //   count: 200,
-      nodes: [ ],
+      //   count: 200,
+      nodes: [],
       edges: [],
       options: {
         layout: {
@@ -62,14 +64,12 @@ export default {
       },
     };
   },
-  mounted () {
-    axios
-      .get('http://192.168.153.100:8000/graph/lldp')
-      .then(response => {
-        this.nodes = response.data.nodes;
-        this.edges = response.data.edges;
-      })
-  }
+  mounted() {
+    axios.get("/api/network/lldp").then((response) => {
+      this.nodes = response.data.nodes;
+      this.edges = response.data.edges;
+    });
+  },
 };
 </script>
 

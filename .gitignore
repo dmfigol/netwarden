@@ -1,5 +1,5 @@
-settings.toml
 *.key
+sandbox.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -103,6 +103,7 @@ ENV/
 
 # mypy
 .mypy_cache/
+
 .idea
 tmp/
 .DS_Store

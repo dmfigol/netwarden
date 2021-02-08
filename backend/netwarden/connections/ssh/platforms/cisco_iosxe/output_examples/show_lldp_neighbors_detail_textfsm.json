@@ -1,0 +1,26 @@
+[
+    {
+      "local_interface": "Gi4",
+      "chassis_id": "001e.e5bd.d700",
+      "neighbor_port_id": "Gi2",
+      "neighbor_interface": "GigabitEthernet2",
+      "neighbor": "R4.lab.dmfigol.me",
+      "system_description": "Cisco IOS Software [Gibraltar], Virtual XE Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version 16.11.1b, RELEASE SOFTWARE (fc2)",
+      "capabilities": "R",
+      "management_ip": "100.64.14.4",
+      "vlan": "",
+      "serial": ""
+    },
+    {
+      "local_interface": "Gi3",
+      "chassis_id": "001e.14eb.d300",
+      "neighbor_port_id": "Gi2",
+      "neighbor_interface": "GigabitEthernet2",
+      "neighbor": "R2.lab.dmfigol.me",
+      "system_description": "Cisco IOS Software [Gibraltar], Virtual XE Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version 16.11.1b, RELEASE SOFTWARE (fc2)",
+      "capabilities": "R",
+      "management_ip": "100.64.12.2",
+      "vlan": "",
+      "serial": ""
+    }
+  ]

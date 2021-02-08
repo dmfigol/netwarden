@@ -1,0 +1,67 @@
+{
+    "interfaces": {
+      "GigabitEthernet4": {
+        "if_name": "GigabitEthernet4",
+        "port_id": {
+          "GigabitEthernet2": {
+            "neighbors": {
+              "R4.lab.dmfigol.me": {
+                "neighbor_id": "R4.lab.dmfigol.me",
+                "chassis_id": "001e.e5bd.d700",
+                "port_id": "GigabitEthernet2",
+                "port_description": "GigabitEthernet2",
+                "system_name": "R4.lab.dmfigol.me",
+                "system_description": "Cisco IOS Software [Gibraltar], Virtual XE Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version 16.11.1b, RELEASE SOFTWARE (fc2)\nTechnical Support: http://www.cisco.com/techsupport\nCopyright (c) 1986-2019 by Cisco Systems, Inc.\nCompiled Tue 28-May-19 12:45",
+                "time_remaining": 117,
+                "capabilities": {
+                  "mac_bridge": {
+                    "name": "mac_bridge",
+                    "system": true
+                  },
+                  "router": {
+                    "name": "router",
+                    "system": true,
+                    "enabled": true
+                  }
+                },
+                "management_address": "100.64.14.4",
+                "auto_negotiation": "not supported"
+              }
+            }
+          }
+        }
+      },
+      "GigabitEthernet3": {
+        "if_name": "GigabitEthernet3",
+        "port_id": {
+          "GigabitEthernet2": {
+            "neighbors": {
+              "R2.lab.dmfigol.me": {
+                "neighbor_id": "R2.lab.dmfigol.me",
+                "chassis_id": "001e.14eb.d300",
+                "port_id": "GigabitEthernet2",
+                "port_description": "GigabitEthernet2",
+                "system_name": "R2.lab.dmfigol.me",
+                "system_description": "Cisco IOS Software [Gibraltar], Virtual XE Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version 16.11.1b, RELEASE SOFTWARE (fc2)\nTechnical Support: http://www.cisco.com/techsupport\nCopyright (c) 1986-2019 by Cisco Systems, Inc.\nCompiled Tue 28-May-19 12:45",
+                "time_remaining": 94,
+                "capabilities": {
+                  "mac_bridge": {
+                    "name": "mac_bridge",
+                    "system": true
+                  },
+                  "router": {
+                    "name": "router",
+                    "system": true,
+                    "enabled": true
+                  }
+                },
+                "management_address": "100.64.12.2",
+                "auto_negotiation": "not supported"
+              }
+            }
+          }
+        }
+      }
+    },
+    "total_entries": 2
+  }

@@ -1,0 +1,24 @@
+[default]
+domain_name = "lab.dmfigol.me"
+# database = {host="server.com", user="default"}
+
+[default.device]
+username = "cisco"
+password = "cisco"
+
+# [default.netbox]
+# private_key_file = ".netbox.key"
+
+[development]
+# username = "devuser"
+# database = {user="dev_user", dynaconf_merge=true}
+
+[development.netbox]
+host = "http://192.168.152.100:8080"
+token = "0123456789abcdef0123456789abcdef01234567"
+dynaconf_merge = true
+
+# [staging.netbox]
+# host = "http://192.168.152.100:8080"
+# token = "0123456789abcdef0123456789abcdef01234567"
+# dynaconf_merge = true

@@ -15,8 +15,8 @@ class Node:
 
     def __repr__(self) -> str:
         return (
-            f"{self.__class__.__qualname__}("
-            f"name={self.name!r}"
+            f"{self.__class__.__qualname__}"
+            f"(name={self.name!r})"
         )
 
     def __str__(self) -> str:
@@ -51,3 +51,11 @@ class Node:
         For example, R1.cisco.com -> R1,  sw1 -> sw1"
         """
         return fqdn.split(".")[0]
+
+    @staticmethod
+    def normalize_name(node_name: str) -> str:
+        if "." in node_name:
+            result = Node.extract_hostname_from_fqdn(node_name)
+        else:
+            result = node_name
+        return result

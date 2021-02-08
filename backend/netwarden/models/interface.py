@@ -1,5 +1,5 @@
 import re
-from typing import Optional, Tuple, TYPE_CHECKING
+from typing import Tuple, TYPE_CHECKING
 
 from netwarden.models.link import Link
 

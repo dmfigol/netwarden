@@ -4,7 +4,8 @@ import urllib.parse
 from typing import Any, List, Dict, Union, Optional
 
 import httpx
-from dynaconf import settings
+
+from netwarden.config import settings
 
 logger = logging.getLogger(__name__)
 
@@ -103,8 +104,10 @@ class NetBox:
 
     @staticmethod
     def build_device_id_to_login_creds(
-        secrets: List[Dict[str, Any]]
+        secrets: List[Dict[str, Any]] = None
     ) -> Dict[str, Dict[str, str]]:
+        if secrets is None:
+            secrets = []
         result = {}
         for secret in secrets:
             device_ref = secret.get("device")
@@ -122,11 +125,16 @@ class NetBox:
         return result
 
     @staticmethod
-    def parse_devices(devices: List[Dict[str, Any]], secrets: List[Dict[str, Any]]):
+    def parse_devices(
+        devices: List[Dict[str, Any]], secrets: List[Dict[str, Any]] = None
+    ):
         device_id_to_login_creds = NetBox.build_device_id_to_login_creds(
             secrets=secrets
         )
-
+        default_creds = {
+            "username": settings["device.username"],
+            "password": settings["device.password"],
+        }
         result = []
         domain_name = settings["domain_name"]
         for device in devices:
@@ -134,7 +142,7 @@ class NetBox:
             device_name = device["name"]
             site = device["site"]["name"]
             site_slug = device["site"]["slug"]
-            login_creds = device_id_to_login_creds.get(device_id, {})
+            login_creds = device_id_to_login_creds.get(device_id, default_creds.copy())
             primary_ip_data = device.get("primary_ip", {})
             primary_ip = re.sub(r"/\d+", "", primary_ip_data.get("address", "N/A"))
             vendor = device["device_type"]["manufacturer"]["name"]
@@ -151,7 +159,7 @@ class NetBox:
                 "model": model,
                 "platform_slug": platform_slug,
                 "platform": platform,
-                "sw_version": "N/A",
+                "software_version": "N/A",
                 "mgmt_ip": primary_ip,
                 "site": site,
                 "console": {"server": "192.168.153.100", "port": 9000},

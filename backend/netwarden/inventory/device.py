@@ -1,15 +1,20 @@
 import logging
 from operator import attrgetter
-from typing import Iterable, Optional, Dict, Any, Type, TYPE_CHECKING
+from typing import Iterable, Optional, Dict, List, Any, Type, TYPE_CHECKING, cast
 
 from dataclasses import dataclass, field
 
 from netwarden.connections.base import ConnectionError
+from netwarden.connections.handlers import HANDLERS
+from netwarden.connections.restconf import connection
+
 
 if TYPE_CHECKING:
     from netwarden.connections.base import Connection
+    from netwarden.connections.netconf.connection import NETCONF
 
 logger = logging.getLogger(__name__)
+
 
 @dataclass
 class Device:
@@ -18,22 +23,46 @@ class Device:
     username: str
     password: str
     platform: str
-    connections: Dict[str, "Connection"] = field(default_factory=dict)
+    _connections: Dict[str, "Connection"] = field(default_factory=dict)
 
-    def get_connection(self, conn_name: Optional[str] = None) -> "Connection":
+    @property
+    def connections(self) -> List["Connection"]:
+        return sorted(
+            self._connections.values(), key=attrgetter("priority"), reverse=True
+        )
+
+    def get_connection(
+        self,
+        conn_name: Optional[str] = None,
+        allowed_connections=None,
+        excluded_connections=None,
+    ) -> "Connection":
         if conn_name is not None:
-            return self.connections[conn_name]
+            return self._connections[conn_name]
         else:
-            conn = max(self.connections.values(), key=attrgetter("priority"))
-            logger.info("Device %r, selected connection: %r", self.name, conn.name)
-            return conn
+            selected_conn = None
+            for conn in self.connections:
+                if excluded_connections:
+                    if conn.name in excluded_connections:
+                        continue
+                if allowed_connections:
+                    if conn.name in allowed_connections:
+                        selected_conn = conn
+            if selected_conn is None:
+                raise ValueError(
+                    f"Device {self.name!r}, a connection was not selected"
+                )  # TODO: add custom error
+            logger.info(
+                "Device %r, selected connection: %r", self.name, selected_conn.name
+            )
+            return selected_conn
 
     def create_connection(
         self,
         conn_cls: Type["Connection"],
         conn_name: Optional[str] = None,
         port: Optional[int] = None,
-        **kwargs: Dict[str, Any]
+        **kwargs: Dict[str, Any],
     ) -> None:
         if conn_name is None:
             conn_name = conn_cls.NAME
@@ -44,18 +73,39 @@ class Device:
             password=self.password,
             platform=self.platform,
         )
-        self.connections[conn_name] = conn
+        self._connections[conn_name] = conn
 
     async def get_data(self, key: str, **kwargs: Dict[str, Any]) -> Any:
         """ TODO: implement proper retry mechanism with max number of attempts """
-        conn = self.get_connection()
+        defined_connections = set(self.get_conn_and_handlers(key).keys())
+        conn = self.get_connection(allowed_connections=defined_connections)
         try:
             result = await conn.parse(key, **kwargs)
             return result
         except ConnectionError:
-            conn = self.get_connection()
+            conn = self.get_connection(
+                allowed_connections=defined_connections,
+                excluded_connections={conn.name},
+            )
             result = await conn.parse(key, **kwargs)
             return result
+
+    def get_conn_and_handlers(self, key: str) -> Dict[str, Any]:
+        return HANDLERS[key][self.platform]
+
+    async def get_config(self, conn_name: str) -> Dict[str, str]:
+        conn = self.get_connection(conn_name)
+        if conn_name == "ssh":
+            result = await conn.parse("cfg")
+        elif conn_name == "restconf":
+            restconf_cfg = await conn.parse("cfg")
+            result = {"cfg": restconf_cfg}
+        else:
+            conn_ = cast("NETCONF", conn)
+            await conn_.raise_for_error()
+            nc_response = await conn_.connection.get_config()
+            result = {"cfg": nc_response.result}
+        return result
 
     @classmethod
     def from_netbox(
@@ -71,4 +121,3 @@ class Device:
         for conn_cls in connections:
             device.create_connection(conn_cls)
         return device
-
