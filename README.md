@@ -57,13 +57,15 @@ Change the following parameters in `backend/settings.toml`:
 ### Running
 1) Make sure that the NetBox instance is running
 2) To start backend, execute this in `backend` folder:  
-`poetry run uvicorn netwarden.app:app --host 0.0.0.0 --port 5000 --reload`  
-Backend is accessible at [http://localhost:5000](http://localhost:5000), openapi docs are available at [http://localhost:5000/api/docs](http://localhost:5000/api/docs)
-1) To start frontend, execute this in `frontend` folder:  
-` --host 0.0.0.0 --port 8000`
-Frontend is accessible at [http://localhost:8000](http://localhost:8000)
+`.venv/bin/uvicorn netwarden.app:app --host 0.0.0.0 --port 5000 --reload`  
+Backend is accessible at [http://localhost:5000](http://localhost:5000), openapi docs are available at [http://localhost:5000/api/docs](http://localhost:5000/api/docs)  
+Alternatively, if you are using `poetry` and `go-task`, you can execute `task backend` in the project root directory
+3) To start frontend, execute this in `frontend` folder:  
+`yarn serve --host 0.0.0.0 --port 8000`  
+Frontend is accessible at [http://localhost:8000](http://localhost:8000)  
+Alternatively, if you are using  `go-task`, you can execute `task backend` in the project root directory.
 
-Currently you can explore:
+Currently, the following features have been implemented:
 * inventory list with some general information about the devices + serial/sw version pulled from the devices
 * network topology built based on LLDP
 
