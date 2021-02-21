@@ -55,8 +55,14 @@ tasks:
   backend-tests:
     dir: backend
     cmds:
+      - poetry run pytest tests
+
+  backend-test-suite:
+    dir: backend
+    cmds:
       - task: backend-lint
+      - task: backend-tests
 
   tests:
     cmds:
-      - task: backend-tests
+      - task: backend-test-suite
