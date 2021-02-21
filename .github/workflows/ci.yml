@@ -15,4 +15,4 @@ jobs:
         run: task install-backend
 
       - name: Run backend test suite
-        run: backend-test-suite
+        run: task backend-test-suite
