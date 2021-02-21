@@ -1,5 +1,8 @@
 version: "3"
 
+vars:
+  backend_code_dirs: netwarden/ tests/
+
 tasks:
   netbox:
     dir: ~/projects/netwarden-netbox
@@ -37,3 +40,23 @@ tasks:
     dir: backend
     cmds:
       - poetry export --without-hashes -f requirements.txt > requirements.txt
+
+  backend-lint:
+    dir: backend
+    cmds:
+      - poetry run black --check {{.backend_code_dirs}}
+      - poetry run flake8 {{.backend_code_dirs}}
+
+  backend-static-analysis:
+    dir: backend
+    cmds:
+      - poetry run mypy {{.backend_code_dirs}}
+
+  backend-tests:
+    dir: backend
+    cmds:
+      - task: backend-lint
+
+  tests:
+    cmds:
+      - task: backend-tests
