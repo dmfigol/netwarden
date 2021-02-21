@@ -1,6 +1,6 @@
 import asyncio
 import logging
-from typing import cast, TYPE_CHECKING
+from typing import cast
 
 from fastapi import APIRouter, Request
 

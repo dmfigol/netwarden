@@ -6,7 +6,6 @@ from dataclasses import dataclass, field
 
 from netwarden.connections.base import ConnectionError
 from netwarden.connections.handlers import HANDLERS
-from netwarden.connections.restconf import connection
 
 
 if TYPE_CHECKING:

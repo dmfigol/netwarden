@@ -1,4 +1,4 @@
-from typing import List, Dict, Any, TYPE_CHECKING, ValuesView
+from typing import List, Dict
 
 from netwarden.models.interface import Interface
 
@@ -6,7 +6,7 @@ from netwarden.models.interface import Interface
 class Node:
     cur_id = 1
 
-    def __init__(self, name: str):
+    def __init__(self, name: str) -> None:
         self.name = name
         self.id = Node.cur_id
         Node.cur_id += 1
@@ -14,10 +14,7 @@ class Node:
         self.name_to_interface: Dict[str, "Interface"] = {}
 
     def __repr__(self) -> str:
-        return (
-            f"{self.__class__.__qualname__}"
-            f"(name={self.name!r})"
-        )
+        return f"{self.__class__.__qualname__}" f"(name={self.name!r})"
 
     def __str__(self) -> str:
         return self.name
@@ -32,8 +29,8 @@ class Node:
     #     return name_to_node
 
     @property
-    def interfaces(self) -> ValuesView["Interface"]:
-        return self.name_to_interface.values()
+    def interfaces(self) -> List["Interface"]:
+        return list(self.name_to_interface.values())
 
     def get_or_create_interface(self, interface_name: str) -> "Interface":
         interface = self.name_to_interface.get(interface_name)

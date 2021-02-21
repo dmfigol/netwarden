@@ -85,7 +85,12 @@ class SSH(Connection):
 
         except Exception:
             self.decrease_priority()
-            logger.error("SSH connection to %s failed, new connection priority: %d", self.host, self.priority, exc_info=True)
+            logger.error(
+                "SSH connection to %s failed, new connection priority: %d",
+                self.host,
+                self.priority,
+                exc_info=True,
+            )
             self._enabled = False
         else:
             self._enabled = True

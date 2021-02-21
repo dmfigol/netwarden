@@ -2,14 +2,13 @@ import asyncio
 import logging
 import logging.config
 from pathlib import Path
-from typing import Dict, List, Any, cast
+from typing import cast
 
-from dynaconf import settings
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from netwarden.constants import LOGGING_DICT
-from netwarden.inventory import Inventory
+from netwarden.inventory.inventory import Inventory
 from netwarden.netbox import NetBox
 from netwarden.routers.devices import router as devices_router
 from netwarden.settings import settings
@@ -41,7 +40,7 @@ def make_netbox() -> NetBox:
     if private_key_filepath:
         private_key_path = Path(private_key_filepath)
         if private_key_path.is_file():
-            netbox_private_key = open(private_key_file, "r").read()
+            netbox_private_key = open(private_key_path, "r").read()
         else:
             logger.error("File %r was not found", private_key_filepath)
     netbox = NetBox(

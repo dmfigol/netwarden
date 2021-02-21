@@ -1,7 +1,6 @@
 import logging
 from typing import (
     Dict,
-    TYPE_CHECKING,
     List,
     ValuesView,
     Any,
@@ -97,4 +96,3 @@ class Graph:
             "edges": edges,
         }
         return result
-

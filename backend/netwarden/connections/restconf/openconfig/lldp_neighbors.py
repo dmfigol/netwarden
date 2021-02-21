@@ -1,4 +1,3 @@
-
 # currently:
 # fetch lldp data using restconf, as we parse it, create interface and node objects
 # what we want: similar parsing for restconf and SSH data
@@ -11,7 +10,6 @@
 from typing import Dict, List, Any
 
 from netwarden.models.graph import LLDPNeighborInterface
-
 
 
 # def openconfig_lldp_parse(data: Dict[str, Any], graph: "Graph", node_name: str) -> None:
@@ -36,10 +34,17 @@ from netwarden.models.graph import LLDPNeighborInterface
 #             remote_interface = remote_node.get_or_create_interface(remote_int_name)
 #             interface.add_neighbor(remote_interface)
 
-def parse_openconfig_lldp(data: Dict[str, Any]) -> Dict[str, List[LLDPNeighborInterface]]:
-    result: Dict[str, List[LLDPNeighborInterface]] = {}  # GigabitEthernet2 -> [(GigabitEthernet1, R1)]
+
+def parse_openconfig_lldp(
+    data: Dict[str, Any]
+) -> Dict[str, List[LLDPNeighborInterface]]:
+    result: Dict[
+        str, List[LLDPNeighborInterface]
+    ] = {}  # GigabitEthernet2 -> [(GigabitEthernet1, R1)]
     for interface_data in data["openconfig-lldp:interface"]:
-        interface_name = interface_data["name"]  # full interface name form, e.g. GigabitEthernet2
+        interface_name = interface_data[
+            "name"
+        ]  # full interface name form, e.g. GigabitEthernet2
 
         neighbors = interface_data.get("neighbors")
         if not neighbors:

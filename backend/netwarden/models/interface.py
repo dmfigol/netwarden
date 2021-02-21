@@ -1,5 +1,5 @@
 import re
-from typing import Tuple, TYPE_CHECKING
+from typing import Set, Tuple, TYPE_CHECKING
 
 from netwarden.models.link import Link
 
@@ -31,7 +31,7 @@ class Interface:
         self.type, self.num = self.normalize_interface_name(name)
         self.node = node
         # self.device_name = device_name
-        self.neighbors = set()
+        self.neighbors: Set["Interface"] = set()
 
     def __repr__(self) -> str:
         return (

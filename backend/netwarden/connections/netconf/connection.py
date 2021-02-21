@@ -1,15 +1,8 @@
 import logging
-from typing import Callable, Any, Dict, TYPE_CHECKING
-from scrapli_netconf.driver import AsyncNetconfScrape
+from typing import Callable, Any, Dict
+from scrapli_netconf.driver import AsyncNetconfDriver
 
 from netwarden.connections.base import Connection, ConnectionError
-
-# from netwarden.connections import handlers
-from netwarden.connections.ssh.constants import SSHParseMethod
-
-if TYPE_CHECKING:
-    from scrapli.driver import AsyncNetworkDriver
-
 
 logger = logging.getLogger(__name__)
 
@@ -41,7 +34,7 @@ class NETCONF(Connection):
             platform=platform,
             priority=priority,
         )
-        self.connection = AsyncNetconfScrape(
+        self.connection = AsyncNetconfDriver(
             host=host,
             auth_username=username,
             auth_password=password,
@@ -72,8 +65,13 @@ class NETCONF(Connection):
             await self.open()
         except Exception:
             self.decrease_priority()
-            logger.error("%s connection to %s failed, new connection priority: %d", self.NAME.upper(), self.host, self.priority, exc_info=True)
+            logger.error(
+                "%s connection to %s failed, new connection priority: %d",
+                self.NAME.upper(),
+                self.host,
+                self.priority,
+                exc_info=True,
+            )
             self._enabled = False
         else:
             self._enabled = True
-

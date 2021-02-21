@@ -2,8 +2,9 @@ import asyncio
 
 from scrapli_netconf.driver import AsyncNetconfScrape
 
+
 MY_DEVICE = {
-    "host": "192.168.153.102",
+    "host": "192.168.152.102",
     "auth_username": "cisco",
     "auth_password": "cisco",
     "auth_strict_key": False,

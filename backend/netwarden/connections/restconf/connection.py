@@ -1,18 +1,11 @@
 import logging
 import re
-from collections import ChainMap
-from typing import Dict, Any, Optional, TYPE_CHECKING, Callable
+from typing import Dict, Any, Optional, Callable
 
 from lxml import etree
 from httpx import AsyncClient
 
 from netwarden.connections.base import Connection, ConnectionError
-
-# from netwarden.models.interface import Interface
-from netwarden.models.node import Node
-
-if TYPE_CHECKING:
-    from netwarden.models.graph import Graph
 
 IOS_XE_VERSION_RE = re.compile(r"\bVersion\s+(?P<sw_version>[\w.]+)\b")
 PRIORITY = 700
@@ -101,7 +94,7 @@ class RESTCONF(Connection):
 
     def build_url(self, endpoint: str) -> str:
         if self.root is None:
-            raise RESTCONFError(f"RESTCONF root is unknown")
+            raise RESTCONFError("RESTCONF root is unknown")
         result = f"https://{self.host}{self.root}{endpoint}"
         return result
 
@@ -160,72 +153,3 @@ def cisco_iosxe_parse_device_hw_data(data: Dict[str, Any]) -> Dict[str, Any]:
         ],
     }
     return result
-
-
-## TODO: should this be reworked?
-# def openconfig_lldp_parse(data: Dict[str, Any], graph: "Graph", node_name: str) -> None:
-#     # node_interfaces = []
-#     node = graph.get_or_create_node(node_name)
-#     for interface_data in data["openconfig-lldp:interface"]:
-#         interface_name = interface_data["name"]
-#         interface = node.get_or_create_interface(interface_name)
-#         # interface = Interface(name=interface_name, node=node)
-#         # node_interface.append(interface)
-
-#         neighbors = interface_data.get("neighbors")
-#         if not neighbors:
-#             continue
-
-#         for neighbor_info in neighbors["neighbor"]:
-#             neighbor_state = neighbor_info["state"]
-#             remote_int_name = neighbor_state["port-description"]
-#             remote_device_fqdn = neighbor_state["system-name"]
-#             remote_node_name = Node.extract_hostname_from_fqdn(remote_device_fqdn)
-#             remote_node = graph.get_or_create_node(remote_node_name)
-#             remote_interface = remote_node.get_or_create_interface(remote_int_name)
-#             interface.add_neighbor(remote_interface)
-
-
-# HANDLERS = {
-#     "version_sn": {
-#         "cisco_iosxe": {
-#             "endpoint": "/data/device-hardware-data",
-#             "handler": cisco_iosxe_parse_device_hw_data,  # should return data in vendor-independent form
-#         },
-#         "cisco_iosxr": {"endpoint": "/", "handler": lambda x: None,},
-#     },
-#     "lldp": {
-#         "cisco_iosxe": {
-#             "endpoint": "/data/lldp/interfaces/interface",
-#             "handler": openconfig_lldp_parse,
-#         }
-#     }
-# }
-
-# # dict[str, str]
-# {
-#     "version_sn": {
-#         "cisco_iosxe": {
-#             "restconf": {
-#                 "collect_fn": ChainMap,
-#                 "handlers": [{
-#                     "endpoint": "/data/device-hardware-data",
-#                     "handler": restconf.vendors.cisco_iosxe_parse_device_hw_data,
-#                 }]
-#             },
-#             "scrapli_ssh": {
-#                 "collect_fn": ChainMap,
-#                 "handlers": [{
-#                     "command": "show version",
-#                     "handler": ssh.cisco_iosxe_parse_show_version
-#                 }],
-#             },
-#         },
-#     },
-#     "lldp": {
-#         "cisco_iosxe": {
-#             "endpoint": "/data/lldp/interfaces/interface",
-#             "handler": restconf.openconfig_lldp_parse,
-#         }
-#     }
-# }

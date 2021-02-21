@@ -1,9 +1,9 @@
-from typing import Iterable, Dict, Any, Type, TypeVar
+from typing import Dict, Any, TypeVar
 
 T = TypeVar("T")
 
 
-def merge_dicts(*dicts: Iterable[Dict[str, Any]]) -> Dict[str, Any]:
+def merge_dicts(*dicts: Dict[str, Any]) -> Dict[str, Any]:
     """Merges several dictionaries into one
 
     Args:
@@ -12,11 +12,7 @@ def merge_dicts(*dicts: Iterable[Dict[str, Any]]) -> Dict[str, Any]:
     Returns:
         A dictionary with keys and values from all input dictionaries.
     """
-    result = {
-        key: value
-        for d in dicts
-        for key, value in d.items()
-    }
+    result = {key: value for d in dicts for key, value in d.items()}
     return result
 
 
