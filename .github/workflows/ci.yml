@@ -14,5 +14,5 @@ jobs:
       - name: Install backend
         run: task install-backend
 
-      - name: Run backend tests
-        run: task backend-tests
+      - name: Run backend test suite
+        run: backend-test-suite
