@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/dmfigol/base-docker-images/python:3.8-slim
+      image: ghcr.io/dmfigol/base/python:3.8-slim
     steps:
       - name: Checkout
         uses: actions/checkout@v2
