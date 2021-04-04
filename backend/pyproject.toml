@@ -16,6 +16,7 @@ ntc-templates = "^1"
 attrs = "*"
 scrapli = { version = "*", extras = ["asyncssh", "textfsm", "genie"], allow-prereleases = true }
 scrapli-netconf = { version = "*", allow-prereleases = true }
+genie = "*"
 
 [tool.poetry.dev-dependencies]
 bpython = "*"
