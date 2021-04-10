@@ -3,6 +3,8 @@ This is the repository for the code written live on the [streams](https://www.yo
 The goal of this project is to build a network automation controller using state-of-the-art technologies: Python asyncio / FastAPI web framework / RESTCONF/NETCONF / Vue.JS.  
 Unlike other open-source NMS/controllers (e.g. [eNMS](https://github.com/eNMS-automation/eNMS)), this project is not planned to be released on PyPi and maintained. Instead, it is a sample code to show what is possible and how hard/easy it is to build your custom network controller from scratch.
 
+### License
+Please note that this application is [AGPLv3](https://tldrlegal.com/license/gnu-affero-general-public-license-v3-(agpl-3.0)) licensed.
 
 ### Controller functions
 Once finished, controller should be able to do the following (wishlist):
