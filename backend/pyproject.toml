@@ -3,10 +3,10 @@ name = "netwarden"
 version = "0.1.0"
 description = ""
 authors = ["Dmitry Figol <git@dmfigol.me>"]
-license = "MIT"
+license = "AGPLv3"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 fastapi = "*"
 uvicorn = "*"
 httpx = "*"
@@ -16,7 +16,12 @@ ntc-templates = "^1"
 attrs = "*"
 scrapli = { version = "*", extras = ["asyncssh", "textfsm", "genie"], allow-prereleases = true }
 scrapli-netconf = { version = "*", allow-prereleases = true }
-genie = "*"
+pyats = "^21.3"
+genie = "^21.3"
+
+# [tool.poetry.extras]
+# scrapli = {extras = ["asyncssh", "textfsm", "genie"], git = "https://github.com/carlmontanari/scrapli", branch = "develop"}
+# genie = ["scrapli"]
 
 [tool.poetry.dev-dependencies]
 bpython = "*"
@@ -26,7 +31,8 @@ mypy = "*"
 black = { version = "*", allow-prereleases = true }
 rope = "*"
 pytest = "*"
-scrapli-replay = { version = "*", allow-prereleases = true }
+pytest-asyncio = "*"
+scrapli-replay = { git = "https://github.com/scrapli/scrapli_replay", branch = "main" }
 
 [build-system]
 requires = ["poetry>=0.12"]

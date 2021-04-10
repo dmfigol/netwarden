@@ -30,7 +30,7 @@ async def _get_normalized_devices(request: Request):
 
 @router.get("/devices")
 async def get_devices(request: Request):
-    devices = await _get_normalized_devices(request)
+    # devices = await _get_normalized_devices(request)
     inventory = cast(Inventory, request.app.state.inventory)
     fetch_data_tasks = []
     for device in inventory.devices:
@@ -38,9 +38,14 @@ async def get_devices(request: Request):
         fetch_data_tasks.append(fetch_sw_sn_task)
 
     await asyncio.gather(*fetch_data_tasks)
-    for task, device in zip(fetch_data_tasks, devices):
+    devices = []
+    for task, device in zip(fetch_data_tasks, inventory.devices):
         software_serial_data = task.result()
-        device.update(software_serial_data)
+        device_dict = {
+            **device.dump(),
+            **software_serial_data,
+        }
+        devices.append(device_dict)
 
     return devices
 
@@ -77,3 +82,12 @@ async def lldp_graph(request: Request):
     ]
     graph = Graph.from_lldp_data(lldp_data)
     return graph.dump()
+
+
+@router.get("/ping")
+async def ping(request: Request):
+    # breakpoint()
+    return {
+        "status": "ok",
+        "response": "pong",
+    }

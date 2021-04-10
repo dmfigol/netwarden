@@ -1,0 +1,680 @@
+192.168.152.101:22:AsyncsshTransport::0:
+  connection_profile:
+    host: 192.168.152.101
+    port: 22
+    auth_username: cisco
+    auth_password: true
+    auth_private_key: ''
+    auth_private_key_passphrase: false
+    auth_bypass: false
+    transport: asyncssh
+    auth_secondary: false
+  interactions:
+    - channel_output: ''
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "Configured by scrapli-cfg4 NEW\n\n\nR1#"
+      expected_channel_input: terminal length 0
+      expected_channel_input_redacted: false
+    - channel_output: "\nR1#terminal length 0"
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nR1#"
+      expected_channel_input: terminal width 512
+      expected_channel_input_redacted: false
+    - channel_output: terminal width 512
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nR1#"
+      expected_channel_input: show version
+      expected_channel_input_redacted: false
+    - channel_output: show version
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nCisco IOS XE Software, Version 17.03.01a\nCisco IOS Software\
+        \ [Amsterdam], Virtual XE Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version\
+        \ 17.3.1a, RELEASE SOFTWARE (fc3)\nTechnical Support: http://www.cisco.com/techsupport\n\
+        Copyright (c) 1986-2020 by Cisco Systems, Inc.\nCompiled Wed 12-Aug-20 00:16\
+        \ by mcpre\n\n\nCisco IOS-XE software, Copyright (c) 2005-2020 by cisco Systems,\
+        \ Inc.\nAll rights reserved.  Certain components of Cisco IOS-XE software\
+        \ are\nlicensed under the GNU General Public License (\"GPL\") Version 2.0.\
+        \  The\nsoftware code licensed under GPL Version 2.0 is free software that\
+        \ comes\nwith ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify\
+        \ such\nGPL code under the terms of GPL Version 2.0.  For more details, see\
+        \ the\ndocumentation or \"License Notice\" file accompanying the IOS-XE software,\n\
+        or the applicable URL provided on the flyer accompanying the IOS-XE\nsoftware.\n\
+        \n\nROM: IOS-XE ROMMON\n\nR1 uptime is 11 minutes\nUptime for this control\
+        \ processor is 13 minutes\nSystem returned to ROM by reload\nSystem image\
+        \ file is \"bootflash:packages.conf\"\nLast reload reason: reload\n\n\n\n\
+        This product contains cryptographic features and is subject to United\nStates\
+        \ and local country laws governing import, export, transfer and\nuse. Delivery\
+        \ of Cisco cryptographic products does not imply\nthird-party authority to\
+        \ import, export, distribute or use encryption.\nImporters, exporters, distributors\
+        \ and users are responsible for\ncompliance with U.S. and local country laws.\
+        \ By using this product you\nagree to comply with applicable laws and regulations.\
+        \ If you are unable\nto comply with U.S. and local laws, return this product\
+        \ immediately.\n\nA summary of U.S. laws governing Cisco cryptographic products\
+        \ may be found at:\nhttp://www.cisco.com/wwl/export/crypto/tool/stqrg.html\n\
+        \nIf you require further assistance please contact us by sending email to\n\
+        export@cisco.com.\n\nLicense Level: ax\nLicense Type: N/A(Smart License Enabled)\n\
+        Next reload license Level: ax\n\nThe current throughput level is 1000 kbps\
+        \ \n\n\nSmart Licensing Status: UNREGISTERED/No Licenses in Use\n\ncisco CSR1000V\
+        \ (VXE) processor (revision VXE) with 715705K/3075K bytes of memory.\nProcessor\
+        \ board ID 9228HT2B0FV\nRouter operating mode: Autonomous\n4 Gigabit Ethernet\
+        \ interfaces\n32768K bytes of non-volatile configuration memory.\n3012036K\
+        \ bytes of physical memory.\n6188032K bytes of virtual hard disk at bootflash:.\n\
+        \nConfiguration register is 0x2102\n\nR1#"
+      expected_channel_input:
+      expected_channel_input_redacted: false
+192.168.152.102:22:AsyncsshTransport::0:
+  connection_profile:
+    host: 192.168.152.102
+    port: 22
+    auth_username: cisco
+    auth_password: true
+    auth_private_key: ''
+    auth_private_key_passphrase: false
+    auth_bypass: false
+    transport: asyncssh
+    auth_secondary: false
+  interactions:
+    - channel_output: ''
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\n\n\nR2#"
+      expected_channel_input: terminal length 0
+      expected_channel_input_redacted: false
+    - channel_output: "\nR2#terminal length 0"
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nR2#"
+      expected_channel_input: terminal width 512
+      expected_channel_input_redacted: false
+    - channel_output: terminal width 512
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nR2#"
+      expected_channel_input: show version
+      expected_channel_input_redacted: false
+    - channel_output: show version
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nCisco IOS XE Software, Version 17.03.01a\nCisco IOS Software\
+        \ [Amsterdam], Virtual XE Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version\
+        \ 17.3.1a, RELEASE SOFTWARE (fc3)\nTechnical Support: http://www.cisco.com/techsupport\n\
+        Copyright (c) 1986-2020 by Cisco Systems, Inc.\nCompiled Wed 12-Aug-20 00:16\
+        \ by mcpre\n\n\nCisco IOS-XE software, Copyright (c) 2005-2020 by cisco Systems,\
+        \ Inc.\nAll rights reserved.  Certain components of Cisco IOS-XE software\
+        \ are\nlicensed under the GNU General Public License (\"GPL\") Version 2.0.\
+        \  The\nsoftware code licensed under GPL Version 2.0 is free software that\
+        \ comes\nwith ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify\
+        \ such\nGPL code under the terms of GPL Version 2.0.  For more details, see\
+        \ the\ndocumentation or \"License Notice\" file accompanying the IOS-XE software,\n\
+        or the applicable URL provided on the flyer accompanying the IOS-XE\nsoftware.\n\
+        \n\nROM: IOS-XE ROMMON\n\nR2 uptime is 11 minutes\nUptime for this control\
+        \ processor is 13 minutes\nSystem returned to ROM by reload\nSystem image\
+        \ file is \"bootflash:packages.conf\"\nLast reload reason: reload\n\n\n\n\
+        This product contains cryptographic features and is subject to United\nStates\
+        \ and local country laws governing import, export, transfer and\nuse. Delivery\
+        \ of Cisco cryptographic products does not imply\nthird-party authority to\
+        \ import, export, distribute or use encryption.\nImporters, exporters, distributors\
+        \ and users are responsible for\ncompliance with U.S. and local country laws.\
+        \ By using this product you\nagree to comply with applicable laws and regulations.\
+        \ If you are unable\nto comply with U.S. and local laws, return this product\
+        \ immediately.\n\nA summary of U.S. laws governing Cisco cryptographic products\
+        \ may be found at:\nhttp://www.cisco.com/wwl/export/crypto/tool/stqrg.html\n\
+        \nIf you require further assistance please contact us by sending email to\n\
+        export@cisco.com.\n\nLicense Level: ax\nLicense Type: N/A(Smart License Enabled)\n\
+        Next reload license Level: ax\n\nThe current throughput level is 1000 kbps\
+        \ \n\n\nSmart Licensing Status: UNREGISTERED/No Licenses in Use\n\ncisco CSR1000V\
+        \ (VXE) processor (revision VXE) with 715705K/3075K bytes of memory.\nProcessor\
+        \ board ID 9S4EMJBYGHU\nRouter operating mode: Autonomous\n4 Gigabit Ethernet\
+        \ interfaces\n32768K bytes of non-volatile configuration memory.\n3012036K\
+        \ bytes of physical memory.\n6188032K bytes of virtual hard disk at bootflash:.\n\
+        \nConfiguration register is 0x2102\n\nR2#"
+      expected_channel_input:
+      expected_channel_input_redacted: false
+192.168.152.103:22:AsyncsshTransport::0:
+  connection_profile:
+    host: 192.168.152.103
+    port: 22
+    auth_username: cisco
+    auth_password: true
+    auth_private_key: ''
+    auth_private_key_passphrase: false
+    auth_bypass: false
+    transport: asyncssh
+    auth_secondary: false
+  interactions:
+    - channel_output: ''
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\n\n\nR3#"
+      expected_channel_input: terminal length 0
+      expected_channel_input_redacted: false
+    - channel_output: "\nR3#terminal length 0"
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nR3#"
+      expected_channel_input: terminal width 512
+      expected_channel_input_redacted: false
+    - channel_output: terminal width 512
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nR3#"
+      expected_channel_input: show version
+      expected_channel_input_redacted: false
+    - channel_output: show version
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nCisco IOS XE Software, Version 17.03.01a\nCisco IOS Software\
+        \ [Amsterdam], Virtual XE Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version\
+        \ 17.3.1a, RELEASE SOFTWARE (fc3)\nTechnical Support: http://www.cisco.com/techsupport\n\
+        Copyright (c) 1986-2020 by Cisco Systems, Inc.\nCompiled Wed 12-Aug-20 00:16\
+        \ by mcpre\n\n\nCisco IOS-XE software, Copyright (c) 2005-2020 by cisco Systems,\
+        \ Inc.\nAll rights reserved.  Certain components of Cisco IOS-XE software\
+        \ are\nlicensed under the GNU General Public License (\"GPL\") Version 2.0.\
+        \  The\nsoftware code licensed under GPL Version 2.0 is free software that\
+        \ comes\nwith ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify\
+        \ such\nGPL code under the terms of GPL Version 2.0.  For more details, see\
+        \ the\ndocumentation or \"License Notice\" file accompanying the IOS-XE software,\n\
+        or the applicable URL provided on the flyer accompanying the IOS-XE\nsoftware.\n\
+        \n\nROM: IOS-XE ROMMON\n\nR3 uptime is 11 minutes\nUptime for this control\
+        \ processor is 13 minutes\nSystem returned to ROM by reload\nSystem image\
+        \ file is \"bootflash:packages.conf\"\nLast reload reason: reload\n\n\n\n\
+        This product contains cryptographic features and is subject to United\nStates\
+        \ and local country laws governing import, export, transfer and\nuse. Delivery\
+        \ of Cisco cryptographic products does not imply\nthird-party authority to\
+        \ import, export, distribute or use encryption.\nImporters, exporters, distributors\
+        \ and users are responsible for\ncompliance with U.S. and local country laws.\
+        \ By using this product you\nagree to comply with applicable laws and regulations.\
+        \ If you are unable\nto comply with U.S. and local laws, return this product\
+        \ immediately.\n\nA summary of U.S. laws governing Cisco cryptographic products\
+        \ may be found at:\nhttp://www.cisco.com/wwl/export/crypto/tool/stqrg.html\n\
+        \nIf you require further assistance please contact us by sending email to\n\
+        export@cisco.com.\n\nLicense Level: ax\nLicense Type: N/A(Smart License Enabled)\n\
+        Next reload license Level: ax\n\nThe current throughput level is 1000 kbps\
+        \ \n\n\nSmart Licensing Status: UNREGISTERED/No Licenses in Use\n\ncisco CSR1000V\
+        \ (VXE) processor (revision VXE) with 715705K/3075K bytes of memory.\nProcessor\
+        \ board ID 9CCAZUIG2WR\nRouter operating mode: Autonomous\n4 Gigabit Ethernet\
+        \ interfaces\n32768K bytes of non-volatile configuration memory.\n3012036K\
+        \ bytes of physical memory.\n6188032K bytes of virtual hard disk at bootflash:.\n\
+        \nConfiguration register is 0x2102\n\nR3#"
+      expected_channel_input:
+      expected_channel_input_redacted: false
+192.168.152.104:22:AsyncsshTransport::0:
+  connection_profile:
+    host: 192.168.152.104
+    port: 22
+    auth_username: cisco
+    auth_password: true
+    auth_private_key: ''
+    auth_private_key_passphrase: false
+    auth_bypass: false
+    transport: asyncssh
+    auth_secondary: false
+  interactions:
+    - channel_output: ''
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\n\n\nR4#"
+      expected_channel_input: terminal length 0
+      expected_channel_input_redacted: false
+    - channel_output: "\nR4#terminal length 0"
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nR4#"
+      expected_channel_input: terminal width 512
+      expected_channel_input_redacted: false
+    - channel_output: terminal width 512
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nR4#"
+      expected_channel_input: show version
+      expected_channel_input_redacted: false
+    - channel_output: show version
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nCisco IOS XE Software, Version 17.03.01a\nCisco IOS Software\
+        \ [Amsterdam], Virtual XE Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version\
+        \ 17.3.1a, RELEASE SOFTWARE (fc3)\nTechnical Support: http://www.cisco.com/techsupport\n\
+        Copyright (c) 1986-2020 by Cisco Systems, Inc.\nCompiled Wed 12-Aug-20 00:16\
+        \ by mcpre\n\n\nCisco IOS-XE software, Copyright (c) 2005-2020 by cisco Systems,\
+        \ Inc.\nAll rights reserved.  Certain components of Cisco IOS-XE software\
+        \ are\nlicensed under the GNU General Public License (\"GPL\") Version 2.0.\
+        \  The\nsoftware code licensed under GPL Version 2.0 is free software that\
+        \ comes\nwith ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify\
+        \ such\nGPL code under the terms of GPL Version 2.0.  For more details, see\
+        \ the\ndocumentation or \"License Notice\" file accompanying the IOS-XE software,\n\
+        or the applicable URL provided on the flyer accompanying the IOS-XE\nsoftware.\n\
+        \n\nROM: IOS-XE ROMMON\n\nR4 uptime is 11 minutes\nUptime for this control\
+        \ processor is 12 minutes\nSystem returned to ROM by reload\nSystem image\
+        \ file is \"bootflash:packages.conf\"\nLast reload reason: reload\n\n\n\n\
+        This product contains cryptographic features and is subject to United\nStates\
+        \ and local country laws governing import, export, transfer and\nuse. Delivery\
+        \ of Cisco cryptographic products does not imply\nthird-party authority to\
+        \ import, export, distribute or use encryption.\nImporters, exporters, distributors\
+        \ and users are responsible for\ncompliance with U.S. and local country laws.\
+        \ By using this product you\nagree to comply with applicable laws and regulations.\
+        \ If you are unable\nto comply with U.S. and local laws, return this product\
+        \ immediately.\n\nA summary of U.S. laws governing Cisco cryptographic products\
+        \ may be found at:\nhttp://www.cisco.com/wwl/export/crypto/tool/stqrg.html\n\
+        \nIf you require further assistance please contact us by sending email to\n\
+        export@cisco.com.\n\nLicense Level: ax\nLicense Type: N/A(Smart License Enabled)\n\
+        Next reload license Level: ax\n\nThe current throughput level is 1000 kbps\
+        \ \n\n\nSmart Licensing Status: UNREGISTERED/No Licenses in Use\n\ncisco CSR1000V\
+        \ (VXE) processor (revision VXE) with 715705K/3075K bytes of memory.\nProcessor\
+        \ board ID 9FVRHCTWB97\nRouter operating mode: Autonomous\n4 Gigabit Ethernet\
+        \ interfaces\n32768K bytes of non-volatile configuration memory.\n3012036K\
+        \ bytes of physical memory.\n6188032K bytes of virtual hard disk at bootflash:.\n\
+        \nConfiguration register is 0x2102\n\nR4#"
+      expected_channel_input:
+      expected_channel_input_redacted: false
+192.168.152.105:22:AsyncsshTransport::0:
+  connection_profile:
+    host: 192.168.152.105
+    port: 22
+    auth_username: cisco
+    auth_password: true
+    auth_private_key: ''
+    auth_private_key_passphrase: false
+    auth_bypass: false
+    transport: asyncssh
+    auth_secondary: false
+  interactions:
+    - channel_output: ''
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\n\n\nR5#"
+      expected_channel_input: terminal length 0
+      expected_channel_input_redacted: false
+    - channel_output: "\nR5#terminal length 0"
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nR5#"
+      expected_channel_input: terminal width 512
+      expected_channel_input_redacted: false
+    - channel_output: terminal width 512
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nR5#"
+      expected_channel_input: show version
+      expected_channel_input_redacted: false
+    - channel_output: show version
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nCisco IOS XE Software, Version 17.03.01a\nCisco IOS Software\
+        \ [Amsterdam], Virtual XE Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version\
+        \ 17.3.1a, RELEASE SOFTWARE (fc3)\nTechnical Support: http://www.cisco.com/techsupport\n\
+        Copyright (c) 1986-2020 by Cisco Systems, Inc.\nCompiled Wed 12-Aug-20 00:16\
+        \ by mcpre\n\n\nCisco IOS-XE software, Copyright (c) 2005-2020 by cisco Systems,\
+        \ Inc.\nAll rights reserved.  Certain components of Cisco IOS-XE software\
+        \ are\nlicensed under the GNU General Public License (\"GPL\") Version 2.0.\
+        \  The\nsoftware code licensed under GPL Version 2.0 is free software that\
+        \ comes\nwith ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify\
+        \ such\nGPL code under the terms of GPL Version 2.0.  For more details, see\
+        \ the\ndocumentation or \"License Notice\" file accompanying the IOS-XE software,\n\
+        or the applicable URL provided on the flyer accompanying the IOS-XE\nsoftware.\n\
+        \n\nROM: IOS-XE ROMMON\n\nR5 uptime is 10 minutes\nUptime for this control\
+        \ processor is 12 minutes\nSystem returned to ROM by reload\nSystem image\
+        \ file is \"bootflash:packages.conf\"\nLast reload reason: reload\n\n\n\n\
+        This product contains cryptographic features and is subject to United\nStates\
+        \ and local country laws governing import, export, transfer and\nuse. Delivery\
+        \ of Cisco cryptographic products does not imply\nthird-party authority to\
+        \ import, export, distribute or use encryption.\nImporters, exporters, distributors\
+        \ and users are responsible for\ncompliance with U.S. and local country laws.\
+        \ By using this product you\nagree to comply with applicable laws and regulations.\
+        \ If you are unable\nto comply with U.S. and local laws, return this product\
+        \ immediately.\n\nA summary of U.S. laws governing Cisco cryptographic products\
+        \ may be found at:\nhttp://www.cisco.com/wwl/export/crypto/tool/stqrg.html\n\
+        \nIf you require further assistance please contact us by sending email to\n\
+        export@cisco.com.\n\nLicense Level: ax\nLicense Type: N/A(Smart License Enabled)\n\
+        Next reload license Level: ax\n\nThe current throughput level is 1000 kbps\
+        \ \n\n\nSmart Licensing Status: UNREGISTERED/No Licenses in Use\n\ncisco CSR1000V\
+        \ (VXE) processor (revision VXE) with 715705K/3075K bytes of memory.\nProcessor\
+        \ board ID 927YCPCN6FX\nRouter operating mode: Autonomous\n4 Gigabit Ethernet\
+        \ interfaces\n32768K bytes of non-volatile configuration memory.\n3012036K\
+        \ bytes of physical memory.\n6188032K bytes of virtual hard disk at bootflash:.\n\
+        \nConfiguration register is 0x2102\n\nR5#"
+      expected_channel_input:
+      expected_channel_input_redacted: false
+192.168.152.106:22:AsyncsshTransport::0:
+  connection_profile:
+    host: 192.168.152.106
+    port: 22
+    auth_username: cisco
+    auth_password: true
+    auth_private_key: ''
+    auth_private_key_passphrase: false
+    auth_bypass: false
+    transport: asyncssh
+    auth_secondary: false
+  interactions:
+    - channel_output: ''
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\n\n\nR6#"
+      expected_channel_input: terminal length 0
+      expected_channel_input_redacted: false
+    - channel_output: "\nR6#terminal length 0"
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nR6#"
+      expected_channel_input: terminal width 512
+      expected_channel_input_redacted: false
+    - channel_output: terminal width 512
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nR6#"
+      expected_channel_input: show version
+      expected_channel_input_redacted: false
+    - channel_output: show version
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nCisco IOS XE Software, Version 17.03.01a\nCisco IOS Software\
+        \ [Amsterdam], Virtual XE Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version\
+        \ 17.3.1a, RELEASE SOFTWARE (fc3)\nTechnical Support: http://www.cisco.com/techsupport\n\
+        Copyright (c) 1986-2020 by Cisco Systems, Inc.\nCompiled Wed 12-Aug-20 00:16\
+        \ by mcpre\n\n\nCisco IOS-XE software, Copyright (c) 2005-2020 by cisco Systems,\
+        \ Inc.\nAll rights reserved.  Certain components of Cisco IOS-XE software\
+        \ are\nlicensed under the GNU General Public License (\"GPL\") Version 2.0.\
+        \  The\nsoftware code licensed under GPL Version 2.0 is free software that\
+        \ comes\nwith ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify\
+        \ such\nGPL code under the terms of GPL Version 2.0.  For more details, see\
+        \ the\ndocumentation or \"License Notice\" file accompanying the IOS-XE software,\n\
+        or the applicable URL provided on the flyer accompanying the IOS-XE\nsoftware.\n\
+        \n\nROM: IOS-XE ROMMON\n\nR6 uptime is 11 minutes\nUptime for this control\
+        \ processor is 13 minutes\nSystem returned to ROM by reload\nSystem image\
+        \ file is \"bootflash:packages.conf\"\nLast reload reason: reload\n\n\n\n\
+        This product contains cryptographic features and is subject to United\nStates\
+        \ and local country laws governing import, export, transfer and\nuse. Delivery\
+        \ of Cisco cryptographic products does not imply\nthird-party authority to\
+        \ import, export, distribute or use encryption.\nImporters, exporters, distributors\
+        \ and users are responsible for\ncompliance with U.S. and local country laws.\
+        \ By using this product you\nagree to comply with applicable laws and regulations.\
+        \ If you are unable\nto comply with U.S. and local laws, return this product\
+        \ immediately.\n\nA summary of U.S. laws governing Cisco cryptographic products\
+        \ may be found at:\nhttp://www.cisco.com/wwl/export/crypto/tool/stqrg.html\n\
+        \nIf you require further assistance please contact us by sending email to\n\
+        export@cisco.com.\n\nLicense Level: ax\nLicense Type: N/A(Smart License Enabled)\n\
+        Next reload license Level: ax\n\nThe current throughput level is 1000 kbps\
+        \ \n\n\nSmart Licensing Status: UNREGISTERED/No Licenses in Use\n\ncisco CSR1000V\
+        \ (VXE) processor (revision VXE) with 715705K/3075K bytes of memory.\nProcessor\
+        \ board ID 9DUSA2OK0DT\nRouter operating mode: Autonomous\n5 Gigabit Ethernet\
+        \ interfaces\n32768K bytes of non-volatile configuration memory.\n3012036K\
+        \ bytes of physical memory.\n6188032K bytes of virtual hard disk at bootflash:.\n\
+        \nConfiguration register is 0x2102\n\nR6#"
+      expected_channel_input:
+      expected_channel_input_redacted: false
+192.168.152.107:22:AsyncsshTransport::0:
+  connection_profile:
+    host: 192.168.152.107
+    port: 22
+    auth_username: cisco
+    auth_password: true
+    auth_private_key: ''
+    auth_private_key_passphrase: false
+    auth_bypass: false
+    transport: asyncssh
+    auth_secondary: false
+  interactions:
+    - channel_output: ''
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\n\n\nR7#"
+      expected_channel_input: terminal length 0
+      expected_channel_input_redacted: false
+    - channel_output: "\nR7#terminal length 0"
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nR7#"
+      expected_channel_input: terminal width 512
+      expected_channel_input_redacted: false
+    - channel_output: terminal width 512
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nR7#"
+      expected_channel_input: show version
+      expected_channel_input_redacted: false
+    - channel_output: show version
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nCisco IOS XE Software, Version 17.03.01a\nCisco IOS Software\
+        \ [Amsterdam], Virtual XE Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version\
+        \ 17.3.1a, RELEASE SOFTWARE (fc3)\nTechnical Support: http://www.cisco.com/techsupport\n\
+        Copyright (c) 1986-2020 by Cisco Systems, Inc.\nCompiled Wed 12-Aug-20 00:16\
+        \ by mcpre\n\n\nCisco IOS-XE software, Copyright (c) 2005-2020 by cisco Systems,\
+        \ Inc.\nAll rights reserved.  Certain components of Cisco IOS-XE software\
+        \ are\nlicensed under the GNU General Public License (\"GPL\") Version 2.0.\
+        \  The\nsoftware code licensed under GPL Version 2.0 is free software that\
+        \ comes\nwith ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify\
+        \ such\nGPL code under the terms of GPL Version 2.0.  For more details, see\
+        \ the\ndocumentation or \"License Notice\" file accompanying the IOS-XE software,\n\
+        or the applicable URL provided on the flyer accompanying the IOS-XE\nsoftware.\n\
+        \n\nROM: IOS-XE ROMMON\n\nR7 uptime is 10 minutes\nUptime for this control\
+        \ processor is 12 minutes\nSystem returned to ROM by reload\nSystem image\
+        \ file is \"bootflash:packages.conf\"\nLast reload reason: reload\n\n\n\n\
+        This product contains cryptographic features and is subject to United\nStates\
+        \ and local country laws governing import, export, transfer and\nuse. Delivery\
+        \ of Cisco cryptographic products does not imply\nthird-party authority to\
+        \ import, export, distribute or use encryption.\nImporters, exporters, distributors\
+        \ and users are responsible for\ncompliance with U.S. and local country laws.\
+        \ By using this product you\nagree to comply with applicable laws and regulations.\
+        \ If you are unable\nto comply with U.S. and local laws, return this product\
+        \ immediately.\n\nA summary of U.S. laws governing Cisco cryptographic products\
+        \ may be found at:\nhttp://www.cisco.com/wwl/export/crypto/tool/stqrg.html\n\
+        \nIf you require further assistance please contact us by sending email to\n\
+        export@cisco.com.\n\nLicense Level: ax\nLicense Type: N/A(Smart License Enabled)\n\
+        Next reload license Level: ax\n\nThe current throughput level is 1000 kbps\
+        \ \n\n\nSmart Licensing Status: UNREGISTERED/No Licenses in Use\n\ncisco CSR1000V\
+        \ (VXE) processor (revision VXE) with 715705K/3075K bytes of memory.\nProcessor\
+        \ board ID 9RWZQ1XI0FP\nRouter operating mode: Autonomous\n4 Gigabit Ethernet\
+        \ interfaces\n32768K bytes of non-volatile configuration memory.\n3012036K\
+        \ bytes of physical memory.\n6188032K bytes of virtual hard disk at bootflash:.\n\
+        \nConfiguration register is 0x2102\n\nR7#"
+      expected_channel_input:
+      expected_channel_input_redacted: false
+192.168.152.108:22:AsyncsshTransport::0:
+  connection_profile:
+    host: 192.168.152.108
+    port: 22
+    auth_username: cisco
+    auth_password: true
+    auth_private_key: ''
+    auth_private_key_passphrase: false
+    auth_bypass: false
+    transport: asyncssh
+    auth_secondary: false
+  interactions:
+    - channel_output: ''
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\n\n\nR8#"
+      expected_channel_input: terminal length 0
+      expected_channel_input_redacted: false
+    - channel_output: "\nR8#terminal length 0"
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nR8#"
+      expected_channel_input: terminal width 512
+      expected_channel_input_redacted: false
+    - channel_output: terminal width 512
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nR8#"
+      expected_channel_input: show version
+      expected_channel_input_redacted: false
+    - channel_output: show version
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nCisco IOS XE Software, Version 17.03.01a\nCisco IOS Software\
+        \ [Amsterdam], Virtual XE Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version\
+        \ 17.3.1a, RELEASE SOFTWARE (fc3)\nTechnical Support: http://www.cisco.com/techsupport\n\
+        Copyright (c) 1986-2020 by Cisco Systems, Inc.\nCompiled Wed 12-Aug-20 00:16\
+        \ by mcpre\n\n\nCisco IOS-XE software, Copyright (c) 2005-2020 by cisco Systems,\
+        \ Inc.\nAll rights reserved.  Certain components of Cisco IOS-XE software\
+        \ are\nlicensed under the GNU General Public License (\"GPL\") Version 2.0.\
+        \  The\nsoftware code licensed under GPL Version 2.0 is free software that\
+        \ comes\nwith ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify\
+        \ such\nGPL code under the terms of GPL Version 2.0.  For more details, see\
+        \ the\ndocumentation or \"License Notice\" file accompanying the IOS-XE software,\n\
+        or the applicable URL provided on the flyer accompanying the IOS-XE\nsoftware.\n\
+        \n\nROM: IOS-XE ROMMON\n\nR8 uptime is 10 minutes\nUptime for this control\
+        \ processor is 11 minutes\nSystem returned to ROM by reload\nSystem image\
+        \ file is \"bootflash:packages.conf\"\nLast reload reason: reload\n\n\n\n\
+        This product contains cryptographic features and is subject to United\nStates\
+        \ and local country laws governing import, export, transfer and\nuse. Delivery\
+        \ of Cisco cryptographic products does not imply\nthird-party authority to\
+        \ import, export, distribute or use encryption.\nImporters, exporters, distributors\
+        \ and users are responsible for\ncompliance with U.S. and local country laws.\
+        \ By using this product you\nagree to comply with applicable laws and regulations.\
+        \ If you are unable\nto comply with U.S. and local laws, return this product\
+        \ immediately.\n\nA summary of U.S. laws governing Cisco cryptographic products\
+        \ may be found at:\nhttp://www.cisco.com/wwl/export/crypto/tool/stqrg.html\n\
+        \nIf you require further assistance please contact us by sending email to\n\
+        export@cisco.com.\n\nLicense Level: ax\nLicense Type: N/A(Smart License Enabled)\n\
+        Next reload license Level: ax\n\nThe current throughput level is 1000 kbps\
+        \ \n\n\nSmart Licensing Status: UNREGISTERED/No Licenses in Use\n\ncisco CSR1000V\
+        \ (VXE) processor (revision VXE) with 715705K/3075K bytes of memory.\nProcessor\
+        \ board ID 9KQHS2H3XDC\nRouter operating mode: Autonomous\n4 Gigabit Ethernet\
+        \ interfaces\n32768K bytes of non-volatile configuration memory.\n3012036K\
+        \ bytes of physical memory.\n6188032K bytes of virtual hard disk at bootflash:.\n\
+        \nConfiguration register is 0x2102\n\nR8#"
+      expected_channel_input:
+      expected_channel_input_redacted: false
+192.168.152.109:22:AsyncsshTransport::0:
+  connection_profile:
+    host: 192.168.152.109
+    port: 22
+    auth_username: cisco
+    auth_password: true
+    auth_private_key: ''
+    auth_private_key_passphrase: false
+    auth_bypass: false
+    transport: asyncssh
+    auth_secondary: false
+  interactions:
+    - channel_output: ''
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\n\n\nR9#"
+      expected_channel_input: terminal length 0
+      expected_channel_input_redacted: false
+    - channel_output: "\nR9#terminal length 0"
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nR9#"
+      expected_channel_input: terminal width 512
+      expected_channel_input_redacted: false
+    - channel_output: terminal width 512
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nR9#"
+      expected_channel_input: show version
+      expected_channel_input_redacted: false
+    - channel_output: show version
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nCisco IOS XE Software, Version 17.03.01a\nCisco IOS Software\
+        \ [Amsterdam], Virtual XE Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version\
+        \ 17.3.1a, RELEASE SOFTWARE (fc3)\nTechnical Support: http://www.cisco.com/techsupport\n\
+        Copyright (c) 1986-2020 by Cisco Systems, Inc.\nCompiled Wed 12-Aug-20 00:16\
+        \ by mcpre\n\n\nCisco IOS-XE software, Copyright (c) 2005-2020 by cisco Systems,\
+        \ Inc.\nAll rights reserved.  Certain components of Cisco IOS-XE software\
+        \ are\nlicensed under the GNU General Public License (\"GPL\") Version 2.0.\
+        \  The\nsoftware code licensed under GPL Version 2.0 is free software that\
+        \ comes\nwith ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify\
+        \ such\nGPL code under the terms of GPL Version 2.0.  For more details, see\
+        \ the\ndocumentation or \"License Notice\" file accompanying the IOS-XE software,\n\
+        or the applicable URL provided on the flyer accompanying the IOS-XE\nsoftware.\n\
+        \n\nROM: IOS-XE ROMMON\n\nR9 uptime is 8 minutes\nUptime for this control\
+        \ processor is 10 minutes\nSystem returned to ROM by reload\nSystem image\
+        \ file is \"bootflash:packages.conf\"\nLast reload reason: reload\n\n\n\n\
+        This product contains cryptographic features and is subject to United\nStates\
+        \ and local country laws governing import, export, transfer and\nuse. Delivery\
+        \ of Cisco cryptographic products does not imply\nthird-party authority to\
+        \ import, export, distribute or use encryption.\nImporters, exporters, distributors\
+        \ and users are responsible for\ncompliance with U.S. and local country laws.\
+        \ By using this product you\nagree to comply with applicable laws and regulations.\
+        \ If you are unable\nto comply with U.S. and local laws, return this product\
+        \ immediately.\n\nA summary of U.S. laws governing Cisco cryptographic products\
+        \ may be found at:\nhttp://www.cisco.com/wwl/export/crypto/tool/stqrg.html\n\
+        \nIf you require further assistance please contact us by sending email to\n\
+        export@cisco.com.\n\nLicense Level: ax\nLicense Type: N/A(Smart License Enabled)\n\
+        Next reload license Level: ax\n\nThe current throughput level is 1000 kbps\
+        \ \n\n\nSmart Licensing Status: UNREGISTERED/No Licenses in Use\n\ncisco CSR1000V\
+        \ (VXE) processor (revision VXE) with 715705K/3075K bytes of memory.\nProcessor\
+        \ board ID 97QX7SSNWV3\nRouter operating mode: Autonomous\n4 Gigabit Ethernet\
+        \ interfaces\n32768K bytes of non-volatile configuration memory.\n3012036K\
+        \ bytes of physical memory.\n6188032K bytes of virtual hard disk at bootflash:.\n\
+        \nConfiguration register is 0x2102\n\nR9#"
+      expected_channel_input:
+      expected_channel_input_redacted: false
+192.168.152.110:22:AsyncsshTransport::0:
+  connection_profile:
+    host: 192.168.152.110
+    port: 22
+    auth_username: cisco
+    auth_password: true
+    auth_private_key: ''
+    auth_private_key_passphrase: false
+    auth_bypass: false
+    transport: asyncssh
+    auth_secondary: false
+  interactions:
+    - channel_output: ''
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\n\n\nR10#"
+      expected_channel_input: terminal length 0
+      expected_channel_input_redacted: false
+    - channel_output: "\nR10#terminal length 0"
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nR10#"
+      expected_channel_input: terminal width 512
+      expected_channel_input_redacted: false
+    - channel_output: terminal width 512
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nR10#"
+      expected_channel_input: show version
+      expected_channel_input_redacted: false
+    - channel_output: show version
+      expected_channel_input: "\n"
+      expected_channel_input_redacted: false
+    - channel_output: "\nCisco IOS XE Software, Version 17.03.01a\nCisco IOS Software\
+        \ [Amsterdam], Virtual XE Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version\
+        \ 17.3.1a, RELEASE SOFTWARE (fc3)\nTechnical Support: http://www.cisco.com/techsupport\n\
+        Copyright (c) 1986-2020 by Cisco Systems, Inc.\nCompiled Wed 12-Aug-20 00:16\
+        \ by mcpre\n\n\nCisco IOS-XE software, Copyright (c) 2005-2020 by cisco Systems,\
+        \ Inc.\nAll rights reserved.  Certain components of Cisco IOS-XE software\
+        \ are\nlicensed under the GNU General Public License (\"GPL\") Version 2.0.\
+        \  The\nsoftware code licensed under GPL Version 2.0 is free software that\
+        \ comes\nwith ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify\
+        \ such\nGPL code under the terms of GPL Version 2.0.  For more details, see\
+        \ the\ndocumentation or \"License Notice\" file accompanying the IOS-XE software,\n\
+        or the applicable URL provided on the flyer accompanying the IOS-XE\nsoftware.\n\
+        \n\nROM: IOS-XE ROMMON\n\nR10 uptime is 8 minutes\nUptime for this control\
+        \ processor is 9 minutes\nSystem returned to ROM by reload\nSystem image file\
+        \ is \"bootflash:packages.conf\"\nLast reload reason: reload\n\n\n\nThis product\
+        \ contains cryptographic features and is subject to United\nStates and local\
+        \ country laws governing import, export, transfer and\nuse. Delivery of Cisco\
+        \ cryptographic products does not imply\nthird-party authority to import,\
+        \ export, distribute or use encryption.\nImporters, exporters, distributors\
+        \ and users are responsible for\ncompliance with U.S. and local country laws.\
+        \ By using this product you\nagree to comply with applicable laws and regulations.\
+        \ If you are unable\nto comply with U.S. and local laws, return this product\
+        \ immediately.\n\nA summary of U.S. laws governing Cisco cryptographic products\
+        \ may be found at:\nhttp://www.cisco.com/wwl/export/crypto/tool/stqrg.html\n\
+        \nIf you require further assistance please contact us by sending email to\n\
+        export@cisco.com.\n\nLicense Level: ax\nLicense Type: N/A(Smart License Enabled)\n\
+        Next reload license Level: ax\n\nThe current throughput level is 1000 kbps\
+        \ \n\n\nSmart Licensing Status: UNREGISTERED/No Licenses in Use\n\ncisco CSR1000V\
+        \ (VXE) processor (revision VXE) with 715705K/3075K bytes of memory.\nProcessor\
+        \ board ID 9VBZBTGPH7O\nRouter operating mode: Autonomous\n4 Gigabit Ethernet\
+        \ interfaces\n32768K bytes of non-volatile configuration memory.\n3012036K\
+        \ bytes of physical memory.\n6188032K bytes of virtual hard disk at bootflash:.\n\
+        \nConfiguration register is 0x2102\n\nR10#"
+      expected_channel_input:
+      expected_channel_input_redacted: false

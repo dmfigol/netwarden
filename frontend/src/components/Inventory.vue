@@ -75,10 +75,10 @@ export default {
           field: "site",
           label: "Site",
         },
-        {
-          field: "fqdn",
-          label: "FQDN",
-        },
+        // {
+        //   field: "fqdn",
+        //   label: "FQDN",
+        // },
         // {
         //   field: "mgmt_ip",
         //   label: "Management IP",
@@ -117,6 +117,9 @@ export default {
       ],
       isCFGModalActive: false,
       cfg: "",
+      platform_map: {
+        cisco_iosxe: "Cisco IOS-XE",
+      }
     };
   },
   methods: {
@@ -141,10 +144,11 @@ export default {
     axios.get("/api/devices").then((response) => {
       console.log(response.data[0]);
       for (let device of response.data) {
-        device.credentials = `${device.username}/${device.password}`;
-        let console_url = `telnet://${device.console.server}:${device.console.port}`;
-        device.console_url = `<a href='${console_url}'>${console_url}</a>`;
-        device.software_version = `${device.platform} ${device.software_version}`;
+        // device.credentials = `${device.username}/${device.password}`;
+        // let console_url = `telnet://${device.console.server}:${device.console.port}`;
+        // device.console_url = `<a href='${console_url}'>${console_url}</a>`;
+        let platform = this.platform_map[device.platform];
+        device.software_version = `${platform} ${device.software_version}`;
       }
       this.rows = response.data;
     });

@@ -19,6 +19,9 @@ class Inventory:
         if devices is None:
             devices = {}
         self.name_to_device = devices
+        for device in self.devices:
+            for conn_cls in CONNECTIONS:
+                device.create_connection(conn_cls)
 
     def get_device(self, device_name: str) -> Device:
         return self.name_to_device[device_name]
@@ -64,3 +67,6 @@ class Inventory:
         inventory = cls.from_netbox_devices_list(devices)
         logger.info("%d devices imported from netbox", len(inventory))
         return inventory
+
+    def dump(self):
+        pass

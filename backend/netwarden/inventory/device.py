@@ -2,7 +2,7 @@ import logging
 from operator import attrgetter
 from typing import Iterable, Optional, Dict, List, Any, Type, TYPE_CHECKING, cast
 
-from dataclasses import dataclass, field
+from pydantic import BaseModel, PrivateAttr
 
 from netwarden.connections.base import ConnectionError
 from netwarden.connections.handlers import HANDLERS
@@ -15,14 +15,16 @@ if TYPE_CHECKING:
 logger = logging.getLogger(__name__)
 
 
-@dataclass
-class Device:
+class Device(BaseModel):
     name: str
     host: str
     username: str
     password: str
     platform: str
-    _connections: Dict[str, "Connection"] = field(default_factory=dict)
+    site: str = "N/A"
+    vendor: str = "N/A"
+    model: str = "N/A"
+    _connections: Dict[str, "Connection"] = PrivateAttr(default_factory=dict)
 
     @property
     def connections(self) -> List["Connection"]:
@@ -37,8 +39,10 @@ class Device:
         excluded_connections=None,
     ) -> "Connection":
         if conn_name is not None:
+            # if specific connection type is required
             return self._connections[conn_name]
         else:
+            #
             selected_conn = None
             for conn in self.connections:
                 if excluded_connections:
@@ -116,7 +120,13 @@ class Device:
             username=data["username"],
             password=data["password"],
             platform=data["platform_slug"],
+            vendor=data["vendor"],
+            model=data["model"],
+            site=data["site"],
         )
-        for conn_cls in connections:
-            device.create_connection(conn_cls)
+        # for conn_cls in connections:
+        #     device.create_connection(conn_cls)
         return device
+
+    def dump(self) -> Dict[str, Any]:
+        return self.dict(exclude={"username", "password"})
