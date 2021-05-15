@@ -3,66 +3,17 @@ version: "3"
 vars:
   backend_code_dirs: netwarden/ tests/
 
+includes:
+  backend:
+    taskfile: ./backend/Taskfile.yml
+    dir: backend
+
+  frontend:
+    taskfile: ./frontend/Taskfile.yml
+    dir: frontend
+
 tasks:
   netbox:
     dir: ~/projects/netwarden-netbox
     cmds:
       - docker-compose up -d
-
-  backend:
-    dir: backend
-    cmds:
-      - poetry run uvicorn netwarden.app:app --host 0.0.0.0 --port 5000
-
-  frontend:
-    dir: frontend
-    cmds:
-      - yarn serve --host 0.0.0.0 --port 8000
-
-  install-backend:
-    dir: backend
-    cmds:
-      - rm -rf .venv
-      - poetry install
-
-  install-frontend:
-    dir: frontend
-    cmds:
-      - rm -rf node_modules
-      - yarn install
-
-  install:
-    cmds:
-      - task: install-backend
-      - task: install-frontend
-
-  gen-requirements-txt:
-    dir: backend
-    cmds:
-      - poetry export --without-hashes -f requirements.txt > requirements.txt
-
-  backend-lint:
-    dir: backend
-    cmds:
-      - poetry run black --check {{.backend_code_dirs}}
-      - poetry run flake8 {{.backend_code_dirs}}
-
-  backend-static-analysis:
-    dir: backend
-    cmds:
-      - poetry run mypy {{.backend_code_dirs}}
-
-  backend-tests:
-    dir: backend
-    cmds:
-      - poetry run pytest tests --scrapli-replay-block-network
-
-  backend-test-suite:
-    dir: backend
-    cmds:
-      - task: backend-lint
-      - task: backend-tests
-
-  tests:
-    cmds:
-      - task: backend-test-suite

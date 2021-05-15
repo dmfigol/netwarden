@@ -1,0 +1,41 @@
+version: "3"
+
+vars:
+  backend_code_dirs: netwarden/ tests/
+
+tasks:
+  run:
+    cmds:
+      - poetry run uvicorn netwarden.app:app --host 0.0.0.0 --port 5000
+
+  install:
+    cmds:
+      - rm -rf .venv
+      - poetry install
+
+  update-deps:
+    cmds:
+      - poetry update
+
+  requirements-txt:
+    cmds:
+      - poetry export --without-hashes -f requirements.txt > requirements.txt
+
+  lint:
+    cmds:
+      - poetry run black --check {{.backend_code_dirs}}
+      - poetry run flake8 {{.backend_code_dirs}}
+
+  static-analysis:
+    cmds:
+      - poetry run mypy {{.backend_code_dirs}}
+
+  tests:
+    cmds:
+      - poetry run pytest tests --scrapli-replay-block-network
+
+  test-suite:
+    cmds:
+      - task: lint
+      - task: static-analysis
+      - task: tests
